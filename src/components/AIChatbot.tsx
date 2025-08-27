@@ -21,7 +21,7 @@ const AIChatbot = () => {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello! I\'m MeMedia\'s AI assistant. I can help you learn about our services, pricing, and answer any questions about web development and AI integration. How can I help you today?',
+      content: 'Hello! I\'m MeMedia\'s AI assistant. I can help you learn about our web development services with AI chatbots and booking systems. We offer professional websites starting from R1500 with free demos. How can I help you today?',
       timestamp: new Date()
     }
   ]);
@@ -32,17 +32,17 @@ const AIChatbot = () => {
   const { toast } = useToast();
 
   const faqResponses = {
-    services: "MeMedia offers three main services:\n\n🚀 **Web App Development** - Custom applications with modern tech stack (Starting at $15,000)\n\n🤖 **AI Integration** - Chatbots, ML models, and intelligent features (Starting at $25,000)\n\n⚡ **Smart Business Websites** - AI-powered websites that optimize themselves (Starting at $10,000)\n\nWould you like to know more about any specific service?",
+    services: "MeMedia offers professional web development with AI integration:\n\n🌐 **Web Development with AI Chatbot & Booking Systems** - Custom websites with intelligent features (Starting from R1500)\n\nOur websites include:\n• Responsive design for all devices\n• AI-powered chatbots for customer support\n• Booking and scheduling systems\n• Modern UI/UX design\n• Fast loading performance\n\nDelivery: Minimum 7 days depending on complexity\nProcess: Free demo → Payment after approval → Website transfer",
     
-    pricing: "Our pricing varies by service:\n\n• **Smart Websites**: Starting at $10,000\n• **Web Apps**: Starting at $15,000  \n• **AI Integration**: Starting at $25,000\n\nPricing depends on complexity, features, and timeline. We offer free consultations to provide accurate quotes for your specific needs.",
+    pricing: "Our pricing is simple and transparent:\n\n💰 **Starting from R1500** (depending on complexity)\n\n**Our Process:**\n1. We create a free demo first\n2. Payment only after you're happy with the demo\n3. Website is transferred and out of our hands\n\n**What's included:**\n• Responsive website design\n• AI chatbot integration\n• Booking system (if needed)\n• Mobile-friendly design\n• Fast performance optimization",
     
-    process: "Our development process:\n\n1. **Discovery** - We understand your needs and goals\n2. **Planning** - Create detailed project roadmap\n3. **Design** - UI/UX design and prototyping\n4. **Development** - Agile development with regular updates\n5. **Testing** - Comprehensive quality assurance\n6. **Launch** - Deployment and go-live support\n7. **Support** - Ongoing maintenance and updates",
+    process: "Our simple 3-step process:\n\n1. **Free Demo** - We build a demo version first at no cost\n2. **Review & Payment** - You review the demo, and payment is made only when you're satisfied\n3. **Transfer & Handover** - Website is transferred to you and out of our hands\n\n⏱️ **Timeline**: Minimum 7 days depending on complexity\n💡 **No Risk**: You only pay after seeing and approving the demo",
     
-    ai: "Our AI capabilities include:\n\n🤖 **Chatbots & Virtual Assistants** - Like this one!\n🧠 **Machine Learning Integration** - Predictive analytics and recommendations\n💬 **Natural Language Processing** - Understanding and generating human language\n👁️ **Computer Vision** - Image and video analysis\n📊 **Intelligent Analytics** - AI-powered business insights\n\nWe use cutting-edge models like GPT, custom ML models, and enterprise AI solutions.",
+    ai: "Our AI integration includes:\n\n🤖 **Smart Chatbots** - 24/7 customer support automation\n📅 **Booking Systems** - Automated appointment scheduling\n💬 **Customer Interaction** - Intelligent responses to common questions\n🔄 **Lead Generation** - Automated contact form processing\n\nAll AI features are integrated seamlessly into your website to enhance user experience and grow your business.",
     
-    timeline: "Project timelines typically are:\n\n• **Smart Website**: 4-8 weeks\n• **Web Application**: 8-16 weeks\n• **AI Integration**: 6-12 weeks\n\nTimelines depend on complexity, features, and your feedback speed. We work in agile sprints with regular check-ins to keep projects on track.",
+    timeline: "Project timeline:\n\n⚡ **Minimum 7 days** depending on complexity\n\n**Factors affecting timeline:**\n• Website complexity and features\n• Number of pages required\n• AI chatbot customization level\n• Booking system requirements\n• Your feedback and approval speed\n\nWe work efficiently to deliver quality websites as quickly as possible while ensuring everything works perfectly.",
     
-    contact: "You can reach us through:\n\n📧 **Email**: hello@memedia.com\n💬 **Contact Form**: Fill out the form on this page\n📍 **Location**: San Francisco, CA\n⏰ **Response Time**: Within 24 hours\n\nWould you like me to connect you with our team for a detailed consultation?"
+    contact: "You can reach us at:\n\n📧 **Email**: memediaweb.co@gmail.com\n💬 **Live Chat**: Available through this chatbot\n⏰ **Response Time**: Within 24 hours\n\n**Important Notes:**\n• We don't have a physical address (online business)\n• We don't offer SEO services\n• Websites are transferred and out of our hands after completion\n• We specialize only in web development with AI chatbots and booking systems\n\nWould you like me to help you get started with a free demo?"
   };
 
   const getAIResponse = (userMessage: string): string => {
@@ -61,11 +61,11 @@ const AIChatbot = () => {
     } else if (message.includes('contact') || message.includes('reach') || message.includes('email')) {
       return faqResponses.contact;
     } else if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
-      return "Hello! Great to meet you. I'm here to help you learn about MeMedia's intelligent web solutions. What would you like to know about our services?";
+      return "Hello! Great to meet you. I'm here to help you learn about MeMedia's web development services with AI chatbots and booking systems. What would you like to know?";
     } else if (message.includes('thank') || message.includes('thanks')) {
-      return "You're very welcome! Is there anything else you'd like to know about MeMedia's services or how we can help your business?";
+      return "You're very welcome! Is there anything else you'd like to know about MeMedia's web development services or how we can help build your website with AI features?";
     } else {
-      return "I'd be happy to help! I can tell you about:\n\n• Our services (Web Apps, AI Integration, Smart Websites)\n• Pricing and timelines\n• Our development process\n• AI capabilities\n• How to contact our team\n\nWhat would you like to know more about? Or would you like me to connect you with our team for a detailed consultation?";
+      return "I'd be happy to help! I can tell you about:\n\n• Our web development service with AI chatbots and booking systems\n• Pricing (starting from R1500)\n• Our development process and timeline\n• AI chatbot and booking system features\n• How to get started with a free demo\n\nWhat would you like to know more about? Or would you like me to help you get started with a free demo?";
     }
   };
 
@@ -120,7 +120,7 @@ const AIChatbot = () => {
   const connectToHuman = () => {
     toast({
       title: "Connecting to Team",
-      description: "Please fill out the contact form above and we'll get back to you within 24 hours.",
+      description: "Please email us at memediaweb.co@gmail.com and we'll get back to you within 24 hours.",
     });
   };
 
@@ -155,7 +155,7 @@ const AIChatbot = () => {
               <div>
                 <CardTitle className="text-lg">AI Assistant</CardTitle>
                 <CardDescription className="text-primary-foreground/80 text-sm">
-                  Ask me about MeMedia's services
+                  Ask me about web development services
                 </CardDescription>
               </div>
             </div>
@@ -255,7 +255,7 @@ const AIChatbot = () => {
                 className="text-xs"
               >
                 <Mail className="h-3 w-3 mr-1" />
-                Contact Team
+                Email Us
               </Button>
             </div>
           </div>

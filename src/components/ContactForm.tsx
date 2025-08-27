@@ -105,7 +105,7 @@ const ContactForm = () => {
               Thank You!
             </h3>
             <p className="text-muted-foreground mb-6">
-              Your message has been received. We'll get back to you within 24 hours.
+              Your message has been received. We'll get back to you at memediaweb.co@gmail.com within 24 hours.
             </p>
             <Button onClick={() => setSubmitted(false)} variant="outline">
               Send Another Message
@@ -121,7 +121,7 @@ const ContactForm = () => {
       <CardHeader>
         <CardTitle>Get in Touch</CardTitle>
         <CardDescription>
-          Send us a message and we'll respond as soon as possible
+          Send us a message at memediaweb.co@gmail.com and we'll respond as soon as possible
         </CardDescription>
       </CardHeader>
       <CardContent>
