@@ -1,227 +1,127 @@
-import ContactForm from '@/components/ContactForm';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Mail, MessageCircle, Clock, Globe } from 'lucide-react';
 import AIChatbot from '@/components/AIChatbot';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Bot } from 'lucide-react';
 
 const Contact = () => {
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:memediaweb.co@gmail.com';
+  };
+
+  const handleWhatsAppClick = () => {
+    window.open('https://wa.me/27678998480', '_blank');
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-accent/10 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Contact Us
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            Ready to transform your web presence? Let's start the conversation.
-          </p>
-        </div>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <ContactForm />
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Get in Touch
-                </h2>
-                <p className="text-muted-foreground mb-8">
-                  We'd love to hear about your project and discuss how our AI-powered 
-                  web solutions can help transform your business. Reach out through any 
-                  of these channels.
-                </p>
-              </div>
-
-              {/* Contact Methods */}
-              <div className="space-y-6">
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center">
-                      <Mail className="h-5 w-5 text-primary mr-3" />
-                      <CardTitle className="text-lg">Email</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">hello@memedia.com</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      We respond within 24 hours
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center">
-                      <MessageSquare className="h-5 w-5 text-primary mr-3" />
-                      <CardTitle className="text-lg">Live Chat</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">Available 24/7</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Try our AI assistant for instant answers
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center">
-                      <MapPin className="h-5 w-5 text-primary mr-3" />
-                      <CardTitle className="text-lg">Location</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">San Francisco, CA</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Serving clients worldwide
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-center">
-                      <Clock className="h-5 w-5 text-primary mr-3" />
-                      <CardTitle className="text-lg">Business Hours</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">Monday - Friday: 9 AM - 6 PM PST</p>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Emergency support available 24/7
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-
-              {/* AI Assistant Callout */}
-              <Card className="border-primary/20 bg-primary/5">
+    <div className="min-h-screen bg-background text-foreground">
+      <div className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-xl text-muted-foreground">
+              Ready to build your intelligent website? Contact us directly!
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <Card>
                 <CardHeader>
+                  <CardTitle>Contact MeMedia</CardTitle>
+                  <CardDescription>
+                    Choose your preferred way to reach us
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <Button 
+                    onClick={handleEmailClick}
+                    className="w-full h-16 text-lg"
+                    variant="default"
+                  >
+                    <Mail className="mr-3 h-6 w-6" />
+                    Email: memediaweb.co@gmail.com
+                  </Button>
+                  
+                  <Button 
+                    onClick={handleWhatsAppClick}
+                    className="w-full h-16 text-lg"
+                    variant="outline"
+                  >
+                    <MessageCircle className="mr-3 h-6 w-6" />
+                    WhatsApp: +27 67 899 8480
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Business Information</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
                   <div className="flex items-center">
-                    <Bot className="h-5 w-5 text-primary mr-3" />
-                    <CardTitle className="text-lg">Try Our AI Assistant</CardTitle>
+                    <Clock className="h-5 w-5 text-primary mr-3" />
+                    <span>Response within 12 hours</span>
                   </div>
+                  <div className="flex items-center">
+                    <MessageCircle className="h-5 w-5 text-primary mr-3" />
+                    <span>Available 24/6 (Sundays close earlier)</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Globe className="h-5 w-5 text-primary mr-3" />
+                    <span>Online business - No physical location</span>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="space-y-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Our Process</CardTitle>
+                  <CardDescription>How we work with you</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Get instant answers to frequently asked questions about our services, 
-                    pricing, and process. Our AI assistant is available 24/7 to help.
-                  </p>
-                  <div className="flex flex-wrap gap-2 text-sm text-muted-foreground">
-                    <span className="bg-background px-2 py-1 rounded">Services & Pricing</span>
-                    <span className="bg-background px-2 py-1 rounded">Project Timelines</span>
-                    <span className="bg-background px-2 py-1 rounded">AI Capabilities</span>
-                    <span className="bg-background px-2 py-1 rounded">Development Process</span>
+                  <div className="space-y-4">
+                    <div className="flex items-start">
+                      <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</div>
+                      <div>
+                        <h4 className="font-medium">FREE Demo</h4>
+                        <p className="text-sm text-muted-foreground">We create your website demo at no cost</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</div>
+                      <div>
+                        <h4 className="font-medium">Approve & Pay</h4>
+                        <p className="text-sm text-muted-foreground">Payment only when you're satisfied with demo</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</div>
+                      <div>
+                        <h4 className="font-medium">Transfer</h4>
+                        <p className="text-sm text-muted-foreground">Website transferred and out of our hands</p>
+                      </div>
+                    </div>
                   </div>
+                </CardContent>
+              </Card>
+              
+              <Card>
+                <CardHeader>
+                  <CardTitle>Service Details</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  <p><strong>Service:</strong> Web development with AI chatbot & booking systems</p>
+                  <p><strong>Pricing:</strong> Starting from R1500 (complexity dependent)</p>
+                  <p><strong>Timeline:</strong> Minimum 7 days</p>
+                  <p><strong>Note:</strong> We don't offer SEO services</p>
                 </CardContent>
               </Card>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-muted/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Quick answers to common questions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What services do you offer?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  We specialize in AI-powered web development, including custom web applications, 
-                  AI integration services, and smart business websites that adapt to user behavior.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How much do projects cost?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Our projects start from $10,000 for smart websites, $15,000 for web applications, 
-                  and $25,000 for AI integration. Final pricing depends on your specific requirements.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How long do projects take?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Typical timelines range from 4-8 weeks for websites, 8-16 weeks for web applications, 
-                  and 6-12 weeks for AI integration projects.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Do you work with international clients?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Yes! We work with clients worldwide. We're based in San Francisco but serve 
-                  businesses globally through remote collaboration and communication.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">
-              Visit Us
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Located in the heart of San Francisco's tech scene
-            </p>
-          </div>
-
-          <div className="bg-muted rounded-lg p-8 text-center">
-            <MapPin className="h-16 w-16 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-foreground mb-2">
-              MeMedia Headquarters
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              San Francisco, California<br />
-              United States
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Interactive map integration available upon request
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Chatbot */}
+      </div>
       <AIChatbot />
     </div>
   );

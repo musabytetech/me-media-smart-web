@@ -1,7 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { Bot, Code, CheckCircle, Zap, MessageSquare, Mail } from 'lucide-react';
+import { Bot, Code, CheckCircle, Zap, MessageSquare, Mail, MessageCircle } from 'lucide-react';
+import meMediaLogo from '@/assets/memedia-logo.png';
 
 const Home = () => {
   const services = [
@@ -17,17 +18,44 @@ const Home = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary/10 to-accent/10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-8">
+            <img 
+              src={meMediaLogo} 
+              alt="MeMedia Logo" 
+              className="h-32 w-auto mx-auto mb-6"
+            />
+          </div>
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
             MeMedia
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
             We don't just build websites — we make them intelligent.
           </p>
-          <Link to="/contact">
-            <Button size="lg" className="text-lg px-8 py-3">
-              Get Started
-            </Button>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/contact">
+              <Button size="lg" className="text-lg px-8 py-3">
+                Get Started
+              </Button>
+            </Link>
+            <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => window.location.href = 'mailto:memediaweb.co@gmail.com'}
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Email
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => window.open('https://wa.me/27678998480', '_blank')}
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
+                WhatsApp
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -122,16 +150,21 @@ const Home = () => {
             Let's discuss your web development needs. Starting from R1500 depending on complexity.
           </p>
           
-          <div className="grid md:grid-cols-2 gap-8 mb-12 justify-center max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-12 justify-center max-w-3xl mx-auto">
             <div className="flex flex-col items-center">
               <Mail className="h-8 w-8 text-primary mb-3" />
               <h3 className="font-semibold text-foreground">Email Us</h3>
               <p className="text-muted-foreground">memediaweb.co@gmail.com</p>
             </div>
             <div className="flex flex-col items-center">
+              <MessageCircle className="h-8 w-8 text-primary mb-3" />
+              <h3 className="font-semibold text-foreground">WhatsApp</h3>
+              <p className="text-muted-foreground">+27 67 899 8480</p>
+            </div>
+            <div className="flex flex-col items-center">
               <MessageSquare className="h-8 w-8 text-primary mb-3" />
               <h3 className="font-semibold text-foreground">Live Chat</h3>
-              <p className="text-muted-foreground">Available 24/7</p>
+              <p className="text-muted-foreground">Available 24/6</p>
             </div>
           </div>
           
