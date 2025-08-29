@@ -1,128 +1,195 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, MessageCircle, Clock, Globe } from 'lucide-react';
-import AIChatbot from '@/components/AIChatbot';
+import { Badge } from '@/components/ui/badge';
+import { Phone, MessageCircle, MapPin, Clock, CheckCircle, Cake } from 'lucide-react';
 
 const Contact = () => {
-  const handleEmailClick = () => {
-    window.location.href = 'mailto:memediaweb.co@gmail.com';
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+27123456789'; // Replace with actual phone number
   };
 
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/27678998480', '_blank');
+    window.open('https://wa.me/27123456789', '_blank'); // Replace with actual WhatsApp number
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="container mx-auto px-4 py-8 md:py-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8 md:mb-12">
-            <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">Get in Touch</h1>
-            <p className="text-lg md:text-xl text-muted-foreground px-2">
-              Ready to build your intelligent website? Contact us directly!
-            </p>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-8">
-            <div className="space-y-4 md:space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">Contact MeMedia</CardTitle>
-                  <CardDescription>
-                    Choose your preferred way to reach us
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-3 md:space-y-4">
-                  <Button 
-                    onClick={handleEmailClick}
-                    className="w-full h-12 md:h-16 text-sm md:text-lg flex-col sm:flex-row py-2 px-3"
-                    variant="default"
-                  >
-                    <Mail className="mb-1 sm:mb-0 sm:mr-3 h-5 w-5 md:h-6 md:w-6" />
-                    <span className="text-center">memediaweb.co@gmail.com</span>
-                  </Button>
-                  
-                  <Button 
-                    onClick={handleWhatsAppClick}
-                    className="w-full h-12 md:h-16 text-sm md:text-lg flex-col sm:flex-row py-2 px-3"
-                    variant="outline"
-                  >
-                    <MessageCircle className="mb-1 sm:mb-0 sm:mr-3 h-5 w-5 md:h-6 md:w-6" />
-                    <span className="text-center">+27 67 899 8480</span>
-                  </Button>
-                </CardContent>
-              </Card>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-primary/5 to-secondary/10 py-12 md:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+            Contact Mpho's Baking Kitchen
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground">
+            Ready to order fresh baked goods? Get in touch with us today.
+          </p>
+        </div>
+      </section>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">Business Information</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center">
-                    <Clock className="h-4 w-4 md:h-5 md:w-5 text-primary mr-3 flex-shrink-0" />
-                    <span className="text-sm md:text-base">Response within 12 hours</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MessageCircle className="h-4 w-4 md:h-5 md:w-5 text-primary mr-3 flex-shrink-0" />
-                    <span className="text-sm md:text-base">Available 24/6 (Sundays close earlier)</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Globe className="h-4 w-4 md:h-5 md:w-5 text-primary mr-3 flex-shrink-0" />
-                    <span className="text-sm md:text-base">Online business - No physical location</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div className="space-y-4 md:space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">Our Process</CardTitle>
-                  <CardDescription>How we work with you</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3 md:space-y-4">
-                    <div className="flex items-start">
-                      <div className="bg-primary text-primary-foreground rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">1</div>
-                      <div>
-                        <h4 className="font-medium text-sm md:text-base">FREE Demo</h4>
-                        <p className="text-xs md:text-sm text-muted-foreground">We create your website demo at no cost</p>
-                      </div>
+      {/* Contact Cards */}
+      <section className="py-12 md:py-20 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
+            {/* Phone Card */}
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={handlePhoneClick}>
+              <CardHeader className="text-center">
+                <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-xl">Call Us</CardTitle>
+                <CardDescription>
+                  Speak directly with our baker
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-foreground font-medium">+27 123 456 789</p>
+                <Button variant="outline" className="mt-4" size="sm">
+                  Call Now
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* WhatsApp Card */}
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={handleWhatsAppClick}>
+              <CardHeader className="text-center">
+                <MessageCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-xl">WhatsApp</CardTitle>
+                <CardDescription>
+                  Message us for quick orders
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-foreground font-medium">+27 123 456 789</p>
+                <Button variant="outline" className="mt-4" size="sm">
+                  Message Us
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Location Card */}
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader className="text-center">
+                <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
+                <CardTitle className="text-xl">Visit Us</CardTitle>
+                <CardDescription>
+                  Located in Savannah City
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <p className="text-foreground font-medium">Savannah City<br />Johannesburg</p>
+                <Button variant="outline" className="mt-4" size="sm" disabled>
+                  Pickup Only
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Order Information */}
+          <Card className="mb-8 md:mb-12">
+            <CardHeader>
+              <CardTitle className="flex items-center text-xl md:text-2xl">
+                <Cake className="mr-3 h-6 w-6 text-primary" />
+                Order Information
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Our Products:</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                      Birthday Cakes (Custom designs)
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                      Fresh Scones & Muffins
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                      Jam Tarts & Snowball Cakes
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle className="h-4 w-4 text-primary mr-2" />
+                      Event Catering (except weddings)
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-3">Order Policy:</h3>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• <strong>100% deposit required</strong> before baking</li>
+                    <li>• Fresh baked daily</li>
+                    <li>• Pickup only from Savannah City</li>
+                    <li>• All events catered (except weddings)</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Quick Order Guide */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg md:text-xl">How to Order</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                      1
                     </div>
-                    <div className="flex items-start">
-                      <div className="bg-primary text-primary-foreground rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">2</div>
-                      <div>
-                        <h4 className="font-medium text-sm md:text-base">Approve & Pay</h4>
-                        <p className="text-xs md:text-sm text-muted-foreground">Payment only when you're satisfied with demo</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="bg-primary text-primary-foreground rounded-full w-7 h-7 md:w-8 md:h-8 flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">3</div>
-                      <div>
-                        <h4 className="font-medium text-sm md:text-base">Transfer</h4>
-                        <p className="text-xs md:text-sm text-muted-foreground">Website transferred and out of our hands</p>
-                      </div>
+                    <div>
+                      <h4 className="font-medium text-foreground">Contact Us</h4>
+                      <p className="text-sm text-muted-foreground">Call, WhatsApp or visit with your requirements</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg md:text-xl">Service Details</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="text-sm md:text-base"><strong>Service:</strong> Web development with AI chatbot & booking systems</p>
-                  <p className="text-sm md:text-base"><strong>Pricing:</strong> Starting from R1500 (complexity dependent)</p>
-                  <p className="text-sm md:text-base"><strong>Timeline:</strong> Minimum 7 days</p>
-                  <p className="text-sm md:text-base"><strong>Note:</strong> We don't offer SEO services</p>
-                </CardContent>
-              </Card>
-            </div>
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                      2
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground">Pay Deposit</h4>
+                      <p className="text-sm text-muted-foreground">100% deposit required before we start baking</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start">
+                    <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mr-3 mt-0.5 flex-shrink-0">
+                      3
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground">Collect Fresh</h4>
+                      <p className="text-sm text-muted-foreground">Pick up your order from Savannah City</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg md:text-xl">Important Policies</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="p-3 bg-primary/10 rounded">
+                    <p className="text-sm font-medium text-primary">
+                      100% Deposit Required Before Order
+                    </p>
+                  </div>
+                  <ul className="space-y-2 text-muted-foreground text-sm">
+                    <li>• We cater for all events except weddings</li>
+                    <li>• All items baked fresh to order</li>
+                    <li>• Pickup only from our Savannah City location</li>
+                    <li>• Custom cake designs available</li>
+                    <li>• Order in advance for best availability</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </div>
-      <AIChatbot />
+      </section>
     </div>
   );
 };

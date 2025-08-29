@@ -9,7 +9,7 @@ const Navigation = () => {
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
+    { path: '/products', label: 'Products' },
     { path: '/contact', label: 'Contact' },
   ];
 
@@ -19,7 +19,7 @@ const Navigation = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="text-2xl font-bold text-primary">
-              MeMedia
+              Mpho's Baking Kitchen
             </Link>
           </div>
 
@@ -38,11 +38,6 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            <Link to="/admin">
-              <Button variant="outline" size="sm">
-                Admin
-              </Button>
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -74,15 +69,6 @@ const Navigation = () => {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/admin"
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2"
-              >
-                <Button variant="outline" size="sm" className="w-full">
-                  Admin
-                </Button>
-              </Link>
             </div>
           </div>
         )}
