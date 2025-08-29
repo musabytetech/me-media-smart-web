@@ -6,7 +6,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { MessageCircle, Send, Bot, User, Loader2, Mail, X } from 'lucide-react';
+import { MessageCircle, Send, Bot, User, Loader2, Mail, X, Maximize2, Minimize2 } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -17,6 +17,7 @@ interface Message {
 
 const AIChatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -146,10 +147,14 @@ const AIChatbot = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 w-96 h-[500px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)]">
+    <div className={`fixed z-50 transition-all duration-300 ${
+      isFullscreen 
+        ? 'inset-0 m-0' 
+        : 'bottom-6 right-6 w-96 h-[500px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-2rem)]'
+    }`}>
       <Card className="h-full flex flex-col shadow-xl">
         <CardHeader className="flex-shrink-0 bg-primary text-primary-foreground rounded-t-lg">
-          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between">
             <div className="flex items-center">
               <Bot className="h-5 w-5 mr-2" />
               <div>
@@ -159,14 +164,24 @@ const AIChatbot = () => {
                 </CardDescription>
               </div>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setIsOpen(false)}
-              className="text-primary-foreground hover:bg-primary-foreground/20 h-8 w-8 p-0"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <div className="flex items-center space-x-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsFullscreen(!isFullscreen)}
+                className="text-primary-foreground hover:bg-primary-foreground/20 h-8 w-8 p-0"
+              >
+                {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsOpen(false)}
+                className="text-primary-foreground hover:bg-primary-foreground/20 h-8 w-8 p-0"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </CardHeader>
         
