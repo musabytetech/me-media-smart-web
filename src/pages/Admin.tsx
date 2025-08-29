@@ -9,7 +9,7 @@ import { Loader2, LogIn } from 'lucide-react';
 
 const Admin = () => {
   const [loading, setLoading] = useState(false);
-  const [loginForm, setLoginForm] = useState({ email: '', password: '' });
+  const [password, setPassword] = useState('');
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Admin = () => {
 
     try {
       // Simple hardcoded admin check
-      if (loginForm.password === '12345678') {
+      if (password === '12345678') {
         toast({
           title: "Login Successful",
           description: "Welcome to admin dashboard!",
@@ -64,23 +64,12 @@ const Admin = () => {
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="login-email">Email (Optional)</Label>
-                <Input
-                  id="login-email"
-                  type="email"
-                  value={loginForm.email}
-                  onChange={(e) => setLoginForm(prev => ({...prev, email: e.target.value}))}
-                  placeholder="admin@memedia.com"
-                  disabled={loading}
-                />
-              </div>
-              <div className="space-y-2">
                 <Label htmlFor="login-password">Password</Label>
                 <Input
                   id="login-password"
                   type="password"
-                  value={loginForm.password}
-                  onChange={(e) => setLoginForm(prev => ({...prev, password: e.target.value}))}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter admin password"
                   required
                   disabled={loading}
